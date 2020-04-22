@@ -49,12 +49,20 @@ public class Sorts
                 list = this.blist;
                 break;
             case Insert:
-            default:
                 System.out.println("Insertions Sort -- "
                   + " Operations: " + (this.icompares + this.iswaps)
                   + " Compares: " + this.icompares
                   + " Swaps: " + this.iswaps);
                 list = this.ilist;
+                break;
+                
+            case Select:
+            default:
+                System.out.println("Selections Sort -- "
+                  + " Operations: " + (this.scompares + this.sswaps)
+                  + " Compares: " + this.scompares
+                  + " Swaps: " + this.sswaps);
+                list = this.slist;
         }
                 
         String output = "[";
