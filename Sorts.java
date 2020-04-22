@@ -7,12 +7,13 @@
  */
 public class Sorts
 {
-    enum ListType {Standard, Bubble, Insert};
+    enum ListType {Standard, Bubble, Insert, Select};
     ListType listType = ListType.Standard;
     
     private int[] list;
     private int[] blist; int bcompares = 0; int bswaps = 0;
     private int[] ilist; int icompares = 0; int iswaps = 0;
+    private int[] slist; int scompares = 0; int sswaps = 0;
 
     /**
      * Constructor for objects of class isort
@@ -28,6 +29,8 @@ public class Sorts
         this.BubbleSort();
         ilist = list.clone();
         this.InsertionSort();
+        slist = list.clone();
+        this.SelectionSort();
     }
     
     public String toString() {
@@ -113,6 +116,37 @@ public class Sorts
         return ilist;
     }
 
+    
+    /*
+     * Add Selection Sort
+	 * Selection sort: repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning.
+	 */
+    public int[] SelectionSort()
+    {
+    	for (int i = 0; i < slist.length - 1; i++)
+    	{
+    		//find smallest number
+    		int min_i = i; 
+            for (int j = i+1; j < slist.length; j++)
+            {
+                if (slist[j] < slist[min_i]) 
+                    min_i = j; 
+                
+                //analytics
+                this.scompares++;		//compare counter
+            }
+            //swap smallest number with the first number
+            int temp = slist[min_i]; 
+            slist[min_i] = slist[i]; 
+            slist[i] = temp; 
+            
+            //analytics
+            this.sswaps++;		//swap counter
+    	}
+    	
+    	return slist;
+    }
+
     /**
      *
      */
@@ -128,6 +162,10 @@ public class Sorts
         
         // Insertion Sort
         is.listType = ListType.Insert;
+        System.out.println(is);
+        
+        // Selection Sort
+        is.listType = ListType.Select;
         System.out.println(is);
     }
 }
