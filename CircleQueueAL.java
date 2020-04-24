@@ -153,6 +153,7 @@ public class CircleQueueAL<Initial>
    *
    * @return    string representation of this Queue
    */
+
   public String toString()
   {
     String queueToString = "[";
@@ -160,8 +161,11 @@ public class CircleQueueAL<Initial>
     Initial object = firstObject;  			// start from the head
     while (object != null)
     {
-    	queueToString += "("+object.getObject()+")"; 	// append the data to output string
-    	object = node.getNext();				// go to next node
+    	queueToString += "(" + object + ")"; 	// append the data to output string
+    	/*
+    	 * Alternative if that doesnt work
+    	 * queueToString += "(" + object.toString + ")";
+    	 */
     	if (object != null)
     		queueToString += ", ";
     }
@@ -169,11 +173,15 @@ public class CircleQueueAL<Initial>
     queueToString += "]";
     return queueToString;
   }
-  
+
   /**
    * Performs insertion sort based off of the contents of object
    */
+
 public void insertionSort() {	
+
+  public void insertionSort() {	
+
 	
 	//two nodes needed for insertion sort indexes
     LinkedList node1 = headNode;
