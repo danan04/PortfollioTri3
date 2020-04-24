@@ -27,28 +27,8 @@ import javax.swing.BoxLayout;
 public class UI extends JFrame
 {
 	public int main;
-	private JTextField List1;
-	private JTextField List2;
-	private JTextField List3;
-	private JTextField Sort1;
-	private JTextField Sort2;
-	private JTextField Sort3;
-
-	
-	//create frame
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UI frame = new UI();
-					frame.createLayout();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private JTextField DisplayLists;
+	private JTextField SortedLists;
 		public void createLayout() {
 			
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,56 +47,32 @@ public class UI extends JFrame
 			lblList.setBounds(10, 10, 53, 23);
 			getContentPane().add(lblList);
 			
-			List1 = new JTextField();
-			List1.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					Criminal.main(null);
-				}
-			});
-			List1.setBounds(10, 34, 656, 31);
-			getContentPane().add(List1);
-			List1.setColumns(10);
 
-			List2 = new JTextField();
-			List2.addActionListener(new ActionListener() {
+			DisplayLists = new JTextField();
+			DisplayLists.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					Cupcakes.main(null);
+					CircleQueueDriver.main(null);
 				}
 			});
-			List2.setColumns(10);
-			List2.setBounds(10, 75, 656, 31);
-			getContentPane().add(List2);
-			
-			List3 = new JTextField();
-			List3.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					Alphabet.main(null);
-				}
-			});
-			List3.setColumns(10);
-			List3.setBounds(10, 116, 656, 31);
-			getContentPane().add(List3);
+			DisplayLists.setBounds(10, 41, 656, 133);
+			getContentPane().add(DisplayLists);
+			DisplayLists.setColumns(10);
 			
 			//display sorted lists
 			JLabel lblSortedLists = new JLabel("Sorted Lists:");
 			lblSortedLists.setFont(new Font("Castellar", Font.PLAIN, 14));
-			lblSortedLists.setBounds(10, 157, 124, 23);
+			lblSortedLists.setBounds(10, 173, 124, 34);
 			getContentPane().add(lblSortedLists);
 			
 			
-			Sort1 = new JTextField();
-			Sort1.setColumns(10);
-			Sort1.setBounds(10, 189, 656, 31);
-			getContentPane().add(Sort1);
-			
-			Sort2 = new JTextField();
-			Sort2.setColumns(10);
-			Sort2.setBounds(10, 230, 656, 31);
-			getContentPane().add(Sort2);
-			
-			Sort3 = new JTextField();
-			Sort3.setColumns(10);
-			Sort3.setBounds(10, 271, 656, 31);
-			getContentPane().add(Sort3);
+			SortedLists = new JTextField();
+			SortedLists.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					CircleQueueDriver.main(null);
+				}
+			});
+			SortedLists.setColumns(10);
+			SortedLists.setBounds(10, 206, 656, 133);
+			getContentPane().add(SortedLists);
 		}
 	}
