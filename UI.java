@@ -24,7 +24,6 @@ import java.awt.GridLayout;
 import java.awt.CardLayout;
 import javax.swing.BoxLayout;
 
-
 public class UI extends JFrame{
 	public UI() {
 		getContentPane().setBackground(new Color(135, 206, 235));
