@@ -55,7 +55,6 @@ public class UI extends JFrame
 			setBounds(100, 100, 800, 645);
 			setBackground(Color.LIGHT_GRAY);
 			getContentPane().setLayout(null);
-			
 		}
 		
 		public UI() {
