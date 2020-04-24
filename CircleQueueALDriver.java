@@ -85,4 +85,9 @@ public class CircleQueueALDriver<Initial> {
 		trial.deleteCQueue();
 	}
 	
+	public CircleQueueAL returncq()
+	{
+		return cqueue;
+	}
+	
 }

@@ -23,12 +23,12 @@ import javax.swing.JScrollBar;
 import java.awt.GridLayout;
 import java.awt.CardLayout;
 import javax.swing.BoxLayout;
+import javax.swing.JTextArea;
 
 public class UI extends JFrame
 {
 	public int main;
-	private JTextField DisplayLists;
-	private JTextField SortedLists;
+	private JTextField SortedList;
 		public void createLayout() {
 			
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,38 +41,39 @@ public class UI extends JFrame
 			getContentPane().setBackground(new Color(135, 206, 235));
 			getContentPane().setLayout(null);
 			
+			/*
+			CircleQueueALDriver trial = new CircleQueueALDriver();
+			trial.addCQueue(Criminal.criminalData2());
+			CircleQueueAL list = trial.returncq();
+			*/
+			
 			//display lists
-			JLabel lblList = new JLabel("Lists:");
+			JLabel lblList = new JLabel("List:");
 			lblList.setFont(new Font("Castellar", Font.PLAIN, 14));
 			lblList.setBounds(10, 10, 53, 23);
 			getContentPane().add(lblList);
 			
-
-			DisplayLists = new JTextField();
-			DisplayLists.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					CircleQueueDriver.main(null);
-				}
-			});
-			DisplayLists.setBounds(10, 41, 656, 133);
-			getContentPane().add(DisplayLists);
-			DisplayLists.setColumns(10);
+			JTextArea CrimList = new JTextArea();
+			CrimList.setBounds(10, 43, 656, 120);
+			getContentPane().add(CrimList);
+			Criminal.key = Criminal.KeyType.age;
 			
 			//display sorted lists
-			JLabel lblSortedLists = new JLabel("Sorted Lists:");
+			JLabel lblSortedLists = new JLabel("List sorted by age:");
 			lblSortedLists.setFont(new Font("Castellar", Font.PLAIN, 14));
-			lblSortedLists.setBounds(10, 173, 124, 34);
+			lblSortedLists.setBounds(10, 173, 194, 34);
 			getContentPane().add(lblSortedLists);
 			
 			
-			SortedLists = new JTextField();
-			SortedLists.addActionListener(new ActionListener() {
+			SortedList = new JTextField();
+			SortedList.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					CircleQueueDriver.main(null);
 				}
 			});
-			SortedLists.setColumns(10);
-			SortedLists.setBounds(10, 206, 656, 133);
-			getContentPane().add(SortedLists);
+			SortedList.setColumns(10);
+			SortedList.setBounds(10, 206, 656, 133);
+			getContentPane().add(SortedList);
+
 		}
 	}
