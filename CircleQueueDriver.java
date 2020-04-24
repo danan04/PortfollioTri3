@@ -7,7 +7,7 @@
 public class CircleQueueDriver {
 
 	
-	CircleQueue cqueue;	// circle queue object
+	CircleQueue cqueue1;	// circle queue object
 
 
 	private CircleQueue cqueue;	// circle queue object
