@@ -5,126 +5,209 @@
  *
  *	Rewrite CircleQueue using arraylists
  */
-import java.util.EmptyStackException;
-import java.util.Iterator;
 
-public class CircleQueueAL<T>
+import java.util.*;
+import java.util.ArrayList;
+
+public class CircleQueueAL<Initial>
 {
-   private final int DEFAULT_CAPACITY = 100;
-   private int front, rear, count;
-   private T[] queue; 
-
-
-   //  Creates an empty queue using the default capacity.
-   public void CircularArrayQueue()
-   {
-      front = rear = count = 0;
-      queue = (T[]) (new Object[DEFAULT_CAPACITY]);
-   }
-
-
-   //  Creates an empty queue using the specified capacity.
-   public void CircularArrayQueue (int initialCapacity)
-   {
-      front = rear = count = 0;
-      queue = ( (T[])(new Object[initialCapacity]) );
-   }
-
-   //  Adds the specified element to the rear of the queue, expanding
-   //  the capacity of the queue array if necessary.
-   public void enqueue (T element)
-   {
-      if (size() == queue.length) 
-         expandCapacity();
-
-      queue[rear] = element;
-
-      rear = (rear+1) % queue.length;
-
-      count++;
-   }
-
-
-   //  Removes the element at the front of the queue and returns a
-   //  reference to it. Throws an EmptyCollectionException if the
-   //  queue is empty.
-   public T dequeue() throws EmptyStackException
-   {
-      if (isEmpty())
-         throw new EmptyStackException ();
-
-      T result = queue[front];
-      queue[front] = null;
-
-      front = (front+1) % queue.length;
-
-      count--;
-
-      return result;
-   }
    
+   private Initial firstObject;			// 1st element in Queue
+   private Initial finalObject;			// Last element in Queue
+   private Initial currentObject;		
+   private ArrayList<Initial> list = new ArrayList<Initial>();
+  /**
+   *  Constructor for the SinglyLinkedList object
+   *  Generates an empty list.
+   */
+  public CircleQueueAL()
+  {
+    firstObject = null;
+    finalObject = null;
+    currentObject = null;
+  }
+  
+  /**
+   *  Returns the head opaqueObject.
+   *
+   * @return  the head opaqueObject in Stack.
+   */
+  public Object getFirstObject()
+  {
+  	currentObject = firstObject;
 
-   //  Returns a reference to the element at the front of the queue.
-   //  The element is not removed from the queue.  Throws an
-   //  EmptyCollectionException if the queue is empty.  
-   public T first() throws EmptyStackException
-   {
-      if (isEmpty())
-         throw new EmptyStackException (); 
+    if (firstObject == null)
+    	return null;
+    else
+    	return list.get(0);
+  }
 
-      return queue[front];
-   }
+  /**
+   *  Returns the tail opaqueObjects.
+   *
+   * @return  the current opaqueObject in Stack.
+   */
+  public Object getLastObject()
+  {
+	currentObject = finalObject;
 
-   //  Returns true if this queue is empty and false otherwise. 
-   public boolean isEmpty()
-   {
-      return (count == 0);
-   }
- 
+    if (finalObject == null)
+    	return null;
+    else
+    	return list.get(list.size()-1);
+  }
+  
+  /**
+   *  Returns the current Object
+   *
+   * @return  the current Object in Stack.
+   */
+  public Object getObject()
+  {
+    if (currentObject == null)
+  	  return null;
+    else
+      return list.get(currentObject);
+  }
+  
+  /**
+   *  Advances the current node.
+   *
+   */
+  public void setNext()
+  {
+	currentObject = currentObject.getNext();
+	
+	// never let currentNode be null, wrap to head
+	if (currentObject == null)
+		currentObject = firstObject;
+  }
+  
+  /**
+   *  Reverses the current node.
+   *
+   */
+  public void setPrevious()
+  {
+	currentObject = currentObject.getPrevious();
+	
+	// never let currentNode be null, wrap to head
+	if (currentObject == null)
+		currentObject = finalObject;
+  }
+  
+  
+  /**
+   *  Add a new object at the end of the Queue,
+   *
+   * @param  opaqueObject  is the data to be inserted in the Queue object.
+   */
+  public void add(Initial o)
+  {
+	  // add new object to end of Queue
+	  // set opaqueObject
+	  // build previous link of tail (as current)
+	  tailNode = new LinkedList(opaqueObject, currentNode);
+	  
+	  // build next link of current (as tail)
+	  if (currentObject != null)
+		  currentObject.setNextNode(tailNode);
+	  
+	  // after links are established current eq tail
+	  currentObject = finalObject;
 
-   //  Returns the number of elements currently in this queue.
-   public int size()
-   {
-      return count;
-   }
-
-
-   //-----------------------------------------------------------------
-   //  Returns a string representation of this queue. 
-   //-----------------------------------------------------------------
+	  // head eq tail on 1st element only
+	  if (firstObject == null) {
+		  firstObject = finalObject;
+	  }
+  }
+  
+  /**
+   *  Delete an object from the front of the Queue,
+   *
+   */
+  public Object delete()
+  {
+	  Initial opaqueObject = null;
+	  	  
+	  if (firstObject != null) {
+		  opaqueObject = list.get(0);
+		  firstObject = list.get(1);
+		  if (firstObject == null)
+			  finalObject = firstObject;
+		  else
+			  list.setPrevNode(null);
+	  }
+	  		
+	  return opaqueObject;
+  }
+  
+  
+  /**
+   *  Returns a string representation of this Queue,
+   *  polymorphic nature of toString overrides of standard System.out.print behavior
+   *
+   * @return    string representation of this Queue
+   */
   public String toString()
   {
-    String result = "";
-    int scan = 0;
- 
-    while(scan < count)
+    String queueToString = "[";
+
+    Initial object = firstObject;  			// start from the head
+    while (node != null)
     {
-     if(queue[scan]!=null)
-     {
-       result += queue[scan].toString()+"\n";
-     }
-    scan++;
-    }
-
-    return result;
-
+    	queueToString += "("+object.getObject()+")"; 	// append the data to output string
+    	object = node.getNext();				// go to next node
+    	if (object != null)
+    		queueToString += ", ";
+    }										// loop 'till queue ends
+    queueToString += "]";
+    return queueToString;
   }
+  
+  /**
+   * Performs insertion sort based off of the contents of object
+   */
+  public void insertionSort() {	
+	
+	//two nodes needed for insertion sort indexes
+    LinkedList node1 = headNode;
+    LinkedList node2 = (node1 == null) ? null : node1.getNext();
+    
+    //continue while nodes remain in bounds
+    while (node2 != null) {	
+    	
+    	//inner loop pointers for compares and shifts
+    	LinkedList slot1 = node1;
+    	LinkedList slot2 = node2;
+    		
+		//key to be inserted into sorted slot
+		LinkedList key = new LinkedList(node2);		//note: make key a different object, persistent/static in value (node2 moves)
+		String keyText = node2.getObject().toString();
 
+		//walks slots backwards until key position in found
+		while ( slot1.getObject().toString().compareTo(keyText) > 0 ) {
+	    	//shifts object greater than key value to the right in list
+    		slot2.setObject(slot1.getObject());
 
-   //  Creates a new array to store the contents of the queue with
-   //  twice the capacity of the old one.
-  public void expandCapacity()
-  {
-    T[] larger = (T[])(new Object[queue.length *2]);   
+			//moves inner loop pointers
+			slot1 = slot1.getPrevious();
+			slot2 = slot2.getPrevious();
+			
+			//stop at the front of list
+			if (slot1 == null)
+				break;
+			
+    	}
+		//place key in insertion position
+    	slot2.setObject(key.getObject());
 
-    for(int scan=0; scan < count; scan++)
-    {
-      larger[scan] = queue[front];
-      front=(front+1) % queue.length;
-    }
-
-    front = 0;
-    rear = count;
-    queue = larger;
-  }
+    	//advance insertion sort indexes
+    	node1 = node1.getNext();
+    	node2 = node2.getNext();
+    } 
+    
+  } 
+  
 }
+
