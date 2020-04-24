@@ -30,45 +30,48 @@ public class UI extends JFrame{
 		getContentPane().setBackground(new Color(135, 206, 235));
 		getContentPane().setLayout(null);
 		
+		//display lists
 		JLabel lblList = new JLabel("Lists:");
 		lblList.setFont(new Font("Castellar", Font.PLAIN, 14));
 		lblList.setBounds(10, 10, 53, 23);
 		getContentPane().add(lblList);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(10, 34, 656, 31);
-		getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		List1 = new JTextField();
+		List1.setBounds(10, 34, 656, 31);
+		getContentPane().add(List1);
+		List1.setColumns(10);
+
+		List2 = new JTextField();
+		List2.setColumns(10);
+		List2.setBounds(10, 75, 656, 31);
+		getContentPane().add(List2);
 		
+		List3 = new JTextField();
+		List3.setColumns(10);
+		List3.setBounds(10, 116, 656, 31);
+		getContentPane().add(List3);
+		
+		//display sorted lists
 		JLabel lblSortedLists = new JLabel("Sorted Lists:");
 		lblSortedLists.setFont(new Font("Castellar", Font.PLAIN, 14));
 		lblSortedLists.setBounds(10, 157, 124, 23);
 		getContentPane().add(lblSortedLists);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(10, 75, 656, 31);
-		getContentPane().add(textField_2);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(10, 116, 656, 31);
-		getContentPane().add(textField_3);
+		Sort1 = new JTextField();
+		Sort1.setColumns(10);
+		Sort1.setBounds(10, 189, 656, 31);
+		getContentPane().add(Sort1);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(10, 189, 656, 31);
-		getContentPane().add(textField_4);
+		Sort2 = new JTextField();
+		Sort2.setColumns(10);
+		Sort2.setBounds(10, 230, 656, 31);
+		getContentPane().add(Sort2);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(10, 230, 656, 31);
-		getContentPane().add(textField_5);
-		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(10, 271, 656, 31);
-		getContentPane().add(textField_6);
+		Sort3 = new JTextField();
+		Sort3.setColumns(10);
+		Sort3.setBounds(10, 271, 656, 31);
+		getContentPane().add(Sort3);
 	}
 	
 	public String User;
@@ -79,12 +82,12 @@ public class UI extends JFrame{
 	private JTextField textField;
 	private JTextField ItemCode;
 	private JTextField Quantity;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
+	private JTextField List1;
+	private JTextField List2;
+	private JTextField List3;
+	private JTextField Sort1;
+	private JTextField Sort2;
+	private JTextField Sort3;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
