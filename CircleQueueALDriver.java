@@ -66,16 +66,12 @@ public class CircleQueueALDriver<Initial> {
 		CircleQueueALDriver trial = new CircleQueueALDriver();
 		
 		//add different types of objects to the same opaque queue
-		trial.addCQueue(Criminal.criminalData());
-		trial.addCQueue(Cupcakes.cupCakeData());
-		trial.addCQueue(Alphabet.alphabetData());		
+		trial.addCQueue(Criminal.criminalData2());		
 		//display queue objects in queue order
 		trial.showCQueue();
 		
 		//sort queue objects by specific element within the object and display in sort order
 		Criminal.key = Criminal.KeyType.name;
-		Cupcakes.key = Cupcakes.KeyType.flavor;
-		Alphabet.key = Alphabet.KeyType.letter;
 		trial.cqueue.insertionSort();
 		trial.showCQueue();
 		

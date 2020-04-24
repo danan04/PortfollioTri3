@@ -54,6 +54,7 @@ public class Cupcakes extends Generics {
 		return cc;
 	}
 	
+	
 	public static void main(String[] args)
 	{
 		Generics[] cc = cupCakeData();

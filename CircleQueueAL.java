@@ -168,7 +168,8 @@ public class CircleQueueAL<Initial>
     	 */
     	if (object != null)
     		queueToString += ", ";
-    }										// loop 'till queue ends
+    }
+// loop 'till queue ends
     queueToString += "]";
     return queueToString;
   }
@@ -177,7 +178,10 @@ public class CircleQueueAL<Initial>
    * Performs insertion sort based off of the contents of object
    */
 
+public void insertionSort() {	
+
   public void insertionSort() {	
+
 	
 	//two nodes needed for insertion sort indexes
     LinkedList node1 = headNode;
@@ -216,7 +220,7 @@ public class CircleQueueAL<Initial>
     	node2 = node2.getNext();
     } 
     
-  } 
+  }
   
 }
 
