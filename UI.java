@@ -24,7 +24,7 @@ import java.awt.GridLayout;
 import java.awt.CardLayout;
 import javax.swing.BoxLayout;
 
-//Creates Main UI
+
 public class UI extends JFrame{
 	public UI() {
 		getContentPane().setBackground(new Color(135, 206, 235));
@@ -37,16 +37,31 @@ public class UI extends JFrame{
 		getContentPane().add(lblList);
 		
 		List1 = new JTextField();
+		List1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Criminal.main(null);
+			}
+		});
 		List1.setBounds(10, 34, 656, 31);
 		getContentPane().add(List1);
 		List1.setColumns(10);
 
 		List2 = new JTextField();
+		List2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Cupcakes.main(null);
+			}
+		});
 		List2.setColumns(10);
 		List2.setBounds(10, 75, 656, 31);
 		getContentPane().add(List2);
 		
 		List3 = new JTextField();
+		List3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Alphabet.main(null);
+			}
+		});
 		List3.setColumns(10);
 		List3.setBounds(10, 116, 656, 31);
 		getContentPane().add(List3);
@@ -89,6 +104,8 @@ public class UI extends JFrame{
 	private JTextField Sort2;
 	private JTextField Sort3;
 
+	
+	//create frame
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

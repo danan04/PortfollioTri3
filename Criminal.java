@@ -11,7 +11,7 @@ public class Criminal extends Generics {
 	public enum KeyType {combo, name, age, height, gender, hair, state, crime, other};
 	public static KeyType key = KeyType.combo;
 	private String name; 
-	private String age; 
+	private int age; 
 	private String height;
 	private String gender;
 	private String hair;
@@ -22,7 +22,7 @@ public class Criminal extends Generics {
 	/* constructor
 	 * 
 	 */
-	public Criminal(String n, String a, String ht, String g, String ha, String s, String c, String o)
+	public Criminal(String n, int a, String ht, String g, String ha, String s, String c, String o)
 	{
 		this.setType(type);
 		this.name = n;
@@ -47,9 +47,8 @@ public class Criminal extends Generics {
 			output += this.name;
 			break;
 		case age:
-			//output += "000" + this.age;
-			//output = output.substring(output.length()-3);
-			output += this.age;
+			output += "000" + this.age;
+			output = output.substring(output.length()-3);
 			break;
 		case height:
 			output += this.height;
@@ -78,17 +77,17 @@ public class Criminal extends Generics {
 		
 	}
 	
-	/* Initialize Animal data
-	 * 
+	/* Initialize Criminal data
+	 * If age is unknown "00"
 	 */
 	public static Generics[] criminalData() {
 		Generics[] ad = { 
-				new Criminal("Catherine Gu","17", "5'4''", "F", "black", "CA", "Annoying Sravani", "Last Seen: Over a Zoom call"),
-				new Criminal("Sravani","18", "5'5''", "F", "black", "CA", "Not being helpful", "Last seen: On a Zoom call"),
-				new Criminal("unknown", "?", "?", "M", "blue", "?", "Stealing zarfs from Starbucks", "Last seen: Starbucks"),
-				new Criminal("Bob Joe", "23", "?", "M", "brown", "?", "Selling a Psychrolutes marcidus at a local pet store", 
+				new Criminal("Catherine Gu",17, "5'4''", "F", "black", "CA", "Annoying Sravani", "Last Seen: Over a Zoom call"),
+				new Criminal("Sravani",18, "5'5''", "F", "black", "CA", "Not being helpful", "Last seen: On a Zoom call"),
+				new Criminal("unknown", 00, "?", "M", "blue", "?", "Stealing zarfs from Starbucks", "Last seen: Starbucks"),
+				new Criminal("Bob Joe", 23, "?", "M", "brown", "?", "Selling a Psychrolutes marcidus at a local pet store", 
 						"Last seen: Bob's Absolutely Normal Pet Store"),
-				new Criminal("Jane Doe", "32", "?", "F", "brown", "?", "Attempting to feed a Wunderpus photogenicus", "Last seen: Pacific Ocean")
+				new Criminal("Jane Doe", 32, "?", "F", "brown", "?", "Attempting to feed a Wunderpus photogenicus", "Last seen: Pacific Ocean")
 				//new Criminal()
 		};
 		return ad;
