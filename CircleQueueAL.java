@@ -67,7 +67,7 @@ public class CircleQueueAL<Initial>
     if (currentObject == null)
   	  return null;
     else
-      return list.get(currentObject);
+      return list.indexOf(currentObject);
   }
   
   /**
@@ -76,7 +76,8 @@ public class CircleQueueAL<Initial>
    */
   public void setNext()
   {
-	currentObject = currentObject.getNext();
+	int newIndex= list.indexOf(currentObject);
+	  currentObject = list.get(newIndex +1);
 	
 	// never let currentNode be null, wrap to head
 	if (currentObject == null)
@@ -89,8 +90,8 @@ public class CircleQueueAL<Initial>
    */
   public void setPrevious()
   {
-	currentObject = currentObject.getPrevious();
-	
+	  int newIndex = list.indexOf(currentObject);
+	  currentObject = list.get(newIndex -1);
 	// never let currentNode be null, wrap to head
 	if (currentObject == null)
 		currentObject = finalObject;
@@ -107,11 +108,14 @@ public class CircleQueueAL<Initial>
 	  // add new object to end of Queue
 	  // set opaqueObject
 	  // build previous link of tail (as current)
-	  tailNode = new LinkedList(opaqueObject, currentNode);
+	  list.add(o);
+	  finalObject = list.get(list.size() -1);
 	  
 	  // build next link of current (as tail)
 	  if (currentObject != null)
-		  currentObject.setNextNode(tailNode);
+	  { int newIndex = list.indexOf(currentObject);
+	  list.set(newIndex +1,  finalObject);
+	  }
 	  
 	  // after links are established current eq tail
 	  currentObject = finalObject;
@@ -136,7 +140,7 @@ public class CircleQueueAL<Initial>
 		  if (firstObject == null)
 			  finalObject = firstObject;
 		  else
-			  list.setPrevNode(null);
+			  list.set(list.indexOf(finalObject),null);
 	  }
 	  		
 	  return opaqueObject;
@@ -154,7 +158,7 @@ public class CircleQueueAL<Initial>
     String queueToString = "[";
 
     Initial object = firstObject;  			// start from the head
-    while (node != null)
+    while (object != null)
     {
     	queueToString += "("+object.getObject()+")"; 	// append the data to output string
     	object = node.getNext();				// go to next node

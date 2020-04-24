@@ -5,37 +5,42 @@
  *
  */
 public class CircleQueueDriver {
+
 	
 	CircleQueue cqueue;	// circle queue object
-	private int count; // number of objects in circle queue
 
+
+	private CircleQueue cqueue;	// circle queue object
+
+	private int count; // number of objects in circle queue
+	
 	/* 
-	 * Circle queue constructor
-	 */
+	* Circle queue constructor
+	*/
 	public CircleQueueDriver()
 	{
-		count = 0;		
+		count = 0;	
 		cqueue = new CircleQueue();
 	}
-
+	
 	/*
-	 * Add any array of objects to the queue
-	 */
+	* Add any array of objects to the queue
+	*/
 	public void addCQueue(Object[] objects)
 	{
 		ConsoleMethods.println("Add " + objects.length);
 		for (Object o : objects)
 		{
-			cqueue.add(o);
-			ConsoleMethods.println("Add: " + cqueue.getObject() + " " + cqueue);
-			this.count++;
+		cqueue.add(o);
+		ConsoleMethods.println("Add: " + cqueue.getObject() + " " + cqueue);
+		this.count++;
 		}
-		ConsoleMethods.println();			
+		ConsoleMethods.println();	
 	}
 	
 	/* 
-	 * Show key objects/properties of circle queue
-	 */
+	* Show key objects/properties of circle queue
+	*/
 	public void showCQueue()
 	{
 		ConsoleMethods.println("Size: " + count);
@@ -46,8 +51,8 @@ public class CircleQueueDriver {
 	}
 	
 	/* 
-	 * Delete/Clear all object in circle queue
-	 */
+	* Delete/Clear all object in circle queue
+	*/
 	public void deleteCQueue()
 	{
 		int length = this.count;
@@ -62,18 +67,18 @@ public class CircleQueueDriver {
 	
 	
 	/* 
-	 * Illustrate different Objects that can be placed on same Queue
-	 */
+	* Illustrate different Objects that can be placed on same Queue
+	*/
 	public static void main(String[] args)
-	
-	{			
+	{	
 		//queue
 		CircleQueueDriver trial = new CircleQueueDriver();
 		
 		//add different types of objects to the same opaque queue
 		trial.addCQueue(Criminal.criminalData());
 		trial.addCQueue(Cupcakes.cupCakeData());
-		trial.addCQueue(Alphabet.alphabetData());		
+		trial.addCQueue(Alphabet.alphabetData());	
+		trial.addCQueue(Vehicle.vehicleData());
 		//display queue objects in queue order
 		trial.showCQueue();
 		
@@ -81,17 +86,23 @@ public class CircleQueueDriver {
 		Criminal.key = Criminal.KeyType.name;
 		Cupcakes.key = Cupcakes.KeyType.flavor;
 		Alphabet.key = Alphabet.KeyType.letter;
-		trial.cqueue.insertionSort();
+		Vehicle.key = Vehicle.KeyType.make;
+		//trial.cqueue.insertionSort();
+		
+		// Call the selectionSort
+		trial.cqueue.selectionSort();
 		trial.showCQueue();
 		
 		//display queue objects
 		Criminal.key = Criminal.KeyType.combo;
 		Cupcakes.key = Cupcakes.KeyType.combo;
 		Alphabet.key = Alphabet.KeyType.combo;
+		Vehicle.key = Vehicle.KeyType.combo;
 		trial.showCQueue();
 		
 		//delete queue objects
 		trial.deleteCQueue();
-	}
 	
+	}
+
 }

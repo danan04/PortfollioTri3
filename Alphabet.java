@@ -52,9 +52,9 @@ public class Alphabet extends Generics {
 	 */
 	public static void main(String[] args)
 	{
-		Generics[] ad = alphabetData();
-		for(Generics a : ad)
-			ConsoleMethods.print("" + a);
+		Generics[] alphabet = alphabetData();
+		for(Generics a : alphabet)
+			ConsoleMethods.println("" + a);
 	}
 	
 }
