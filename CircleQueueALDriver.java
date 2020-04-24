@@ -18,7 +18,7 @@ public class CircleQueueALDriver<Initial> {
 	 */
 	public void addCQueue(ArrayList<Initial> newlist)
 	{
-		ConsoleMethods.println("Add " + newlist.size);
+		ConsoleMethods.println("Add " + newlist.size());
 		for (Initial o : newlist)
 		{
 			cqueue.add(o);
