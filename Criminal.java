@@ -87,7 +87,7 @@ public class Criminal extends Generics {
 				new Criminal("unknown", 00, "?", "M", "blue", "?", "Stealing zarfs from Starbucks", "Last seen: Starbucks"),
 				new Criminal("Bob Joe", 23, "?", "M", "brown", "?", "Selling a Psychrolutes marcidus at a local pet store", 
 						"Last seen: Bob's Absolutely Normal Pet Store"),
-				new Criminal("Jane Doe", 32, "?", "F", "brown", "?", "Attempting to feed a Wunderpus photogenicus", "Last seen: Pacific Ocean")
+				new Criminal("Jane Doe", 32, "?", "F", "brown", "?", "Attempting to feed a Wunderpus photogenicus", "Last seen: Pacific Ocean"),
 				//new Criminal()
 		};
 		return ad;
