@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public class CircleQueueAL<Initial>
 {
-   
    private int currentIndex;			// 1st element in Queue		
    private ArrayList<Initial> list;
   /**
@@ -54,7 +53,6 @@ public class CircleQueueAL<Initial>
    */
   public Object getObject()
   {
-
       return list.indexOf(currentIndex);
   }
   
@@ -80,7 +78,7 @@ public class CircleQueueAL<Initial>
   {
 	  if (currentIndex != 0)
 	  {
-	  currentIndex--;
+		  currentIndex--;
 	  }
 	// never let currentNode be null, wrap to head
 

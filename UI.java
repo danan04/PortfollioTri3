@@ -1,7 +1,7 @@
-
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.EventQueue;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -10,70 +10,70 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
-import java.awt.BorderLayout;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JTextPane;
 import java.awt.Font;
 import javax.swing.JScrollPane;
-import javax.swing.JTextPane;
-import javax.swing.JScrollBar;
-import java.awt.GridLayout;
-import java.awt.CardLayout;
-import javax.swing.BoxLayout;
-import javax.swing.JTextArea;
 
-public class UI extends JFrame
-{
-	public int main;
-	private JTextField SortedList;
-		public void createLayout() {
-			
-			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			setBounds(100, 100, 800, 645);
-			setBackground(Color.LIGHT_GRAY);
-			getContentPane().setLayout(null);
-		}
+public class UI extends JFrame {
+	public UI() {
+		getContentPane().setBackground(new Color(135, 206, 250));
+		getContentPane().setLayout(null);
 		
-		public UI() {
-			getContentPane().setBackground(new Color(135, 206, 235));
-			getContentPane().setLayout(null);
-			
-			/*
-			CircleQueueALDriver trial = new CircleQueueALDriver();
-			trial.addCQueue(Criminal.criminalData2());
-			CircleQueueAL list = trial.returncq();
-			*/
-			
-			//display lists
-			JLabel lblList = new JLabel("List:");
-			lblList.setFont(new Font("Castellar", Font.PLAIN, 14));
-			lblList.setBounds(10, 10, 53, 23);
-			getContentPane().add(lblList);
-			
-			JTextArea CrimList = new JTextArea();
-			CrimList.setBounds(10, 43, 656, 120);
-			getContentPane().add(CrimList);
-			
-			
-			//display sorted lists
-			JLabel lblSortedLists = new JLabel("List sorted by age:");
-			lblSortedLists.setFont(new Font("Castellar", Font.PLAIN, 14));
-			lblSortedLists.setBounds(10, 173, 194, 34);
-			getContentPane().add(lblSortedLists);
-			
-			
-			SortedList = new JTextField();
-			SortedList.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					CircleQueueDriver.main(null);
-				}
-			});
-			SortedList.setColumns(10);
-			SortedList.setBounds(10, 206, 656, 133);
-			getContentPane().add(SortedList);
-
-		}
+		JLabel lblCriminalList = new JLabel("Criminal List");
+		lblCriminalList.setFont(new Font("Castellar", Font.PLAIN, 16));
+		lblCriminalList.setBounds(10, 53, 144, 33);
+		getContentPane().add(lblCriminalList);
+		
+		JTextPane display = new JTextPane();
+		display.setBounds(10, 87, 656, 95);
+		getContentPane().add(display);
+		
+		JButton btnDisplayListOf = new JButton("Display List of Criminals");
+		btnDisplayListOf.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				display.setText(Criminal.main(null));
+			}
+		});
+		btnDisplayListOf.setBounds(224, 10, 227, 21);
+		getContentPane().add(btnDisplayListOf);
+		
+		JLabel lblSortedList = new JLabel("Sorted List");
+		lblSortedList.setFont(new Font("Castellar", Font.PLAIN, 16));
+		lblSortedList.setBounds(10, 209, 144, 33);
+		getContentPane().add(lblSortedList);
+		
+		JButton btnSortByAge = new JButton("Sort by age");
+		btnSortByAge.setBounds(289, 192, 85, 21);
+		getContentPane().add(btnSortByAge);
+		
+		JTextPane sort = new JTextPane();
+		sort.setBounds(10, 252, 656, 95);
+		getContentPane().add(sort);
 	}
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					UI frame = new UI();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+
+}
