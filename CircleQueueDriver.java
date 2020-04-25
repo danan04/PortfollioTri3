@@ -1,4 +1,3 @@
- 
 /**
  * Circle Queue Driver takes a list of Objects and puts them into a Queue
  * @author     John Mortensen
