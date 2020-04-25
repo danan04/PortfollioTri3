@@ -173,7 +173,7 @@ public class CircleQueueAL<Initial>
   /**
    * Performs selection sort based off of the contents of object
    */
-  public void selectionSort() {   
+  /*public void selectionSort() {   
 
       //two nodes needed for selection sort indexes
       int node1 = headNode;
@@ -231,5 +231,5 @@ public class CircleQueueAL<Initial>
           }
       } 
 
-  }
+  }*/
 }
