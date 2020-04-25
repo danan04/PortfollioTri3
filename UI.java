@@ -31,12 +31,13 @@ public class UI extends JFrame {
 		getContentPane().add(display);
 		
 		JButton btnDisplayListOf = new JButton("Display List of Criminals");
+		btnDisplayListOf.setFont(new Font("Castellar", Font.PLAIN, 14));
 		btnDisplayListOf.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				display.setText(Criminal.main(null));
+				//display.setText(Criminal.main(null));
 			}
 		});
-		btnDisplayListOf.setBounds(224, 10, 227, 21);
+		btnDisplayListOf.setBounds(193, 10, 302, 21);
 		getContentPane().add(btnDisplayListOf);
 		
 		JLabel lblSortedList = new JLabel("Sorted List");
@@ -44,13 +45,20 @@ public class UI extends JFrame {
 		lblSortedList.setBounds(10, 209, 144, 33);
 		getContentPane().add(lblSortedList);
 		
-		JButton btnSortByAge = new JButton("Sort by age");
-		btnSortByAge.setBounds(289, 192, 85, 21);
-		getContentPane().add(btnSortByAge);
-		
 		JTextPane sort = new JTextPane();
 		sort.setBounds(10, 252, 656, 95);
 		getContentPane().add(sort);
+		
+		JButton btnSortByAge = new JButton("Sort by age");
+		btnSortByAge.setFont(new Font("Castellar", Font.PLAIN, 14));
+		btnSortByAge.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//sort.setText(CircleQueueDriver.main(null));
+			}
+		});
+		btnSortByAge.setBounds(269, 193, 144, 21);
+		getContentPane().add(btnSortByAge);
+
 	}
 
 	/**
