@@ -149,9 +149,7 @@ public class CircleQueueAL<Initial>
    */
 
 
-public void insertionSort() {	
-
-
+	
   public void insertionSort() {	
 
 	
