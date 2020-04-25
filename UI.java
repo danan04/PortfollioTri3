@@ -38,10 +38,6 @@ public class UI extends JFrame {
 		getContentPane().setBackground(new Color(135, 206, 250));
 		getContentPane().setLayout(null);
 		
-		CircleQueueDriver trial = new CircleQueueDriver();
-		trial.addCQueue(Criminal.criminalData());
-		CircleQueueAL data = trial.retcq();
-		
 		JLabel lblCriminalList = new JLabel("Criminal List");
 		lblCriminalList.setFont(new Font("Castellar", Font.PLAIN, 16));
 		lblCriminalList.setBounds(10, 34, 144, 33);
@@ -74,7 +70,7 @@ public class UI extends JFrame {
 		btnSortByAge.setFont(new Font("Castellar", Font.PLAIN, 14));
 		btnSortByAge.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sort.setText(data.toString3());
+				//sort.setText(data.toString3());
 			}
 		});
 		btnSortByAge.setBounds(268, 192, 144, 21);

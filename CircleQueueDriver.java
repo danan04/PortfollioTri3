@@ -64,12 +64,6 @@ public class CircleQueueDriver {
 		}
 	}
 	
-	//for UI
-	public CircleQueue retcq()
-	{
-		return cqueue;
-	}
-	
 	
 	/* 
 	* Illustrate different Objects that can be placed on same Queue
