@@ -20,7 +20,8 @@ public class CircleQueueAL<Initial>
    */
   public CircleQueueAL()
   {
-    list.clear();
+    ArrayList<Initial> list = new ArrayList();
+    currentIndex = 0;
   }
   
   /**
@@ -150,7 +151,7 @@ public class CircleQueueAL<Initial>
    */
 
 
-/*public void insertionSort() {	
+public void insertionSort() {	
 
 
   public void insertionSort() {	
@@ -194,6 +195,6 @@ public class CircleQueueAL<Initial>
     } 
     
   }
-  */
+ 
 }
 
