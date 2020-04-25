@@ -64,6 +64,12 @@ public class CircleQueueDriver {
 		}
 	}
 	
+	//for UI
+	public CircleQueue retcq()
+	{
+		return cqueue;
+	}
+	
 	
 	/* 
 	* Illustrate different Objects that can be placed on same Queue
@@ -101,6 +107,7 @@ public class CircleQueueDriver {
 		
 		//delete queue objects
 		trial.deleteCQueue();
+		
 		
 	
 	}

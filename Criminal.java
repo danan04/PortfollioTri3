@@ -134,7 +134,7 @@ public class Criminal extends Generics {
 		for(int i = 0; i < ad.length; i++)
 		{
 			System.out.println(ad[i]);
-			list += ad[i];
+			list += ad[i] + "\n";
 		}
 		return list;
 	}
