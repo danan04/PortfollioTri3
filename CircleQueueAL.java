@@ -12,19 +12,15 @@ import java.util.ArrayList;
 public class CircleQueueAL<Initial>
 {
    
-   private Initial firstObject;			// 1st element in Queue
-   private Initial finalObject;			// Last element in Queue
-   private Initial currentObject;		
-   private ArrayList<Initial> list = new ArrayList<Initial>();
+   private int currentIndex;			// 1st element in Queue		
+   private ArrayList<Initial> list;
   /**
    *  Constructor for the SinglyLinkedList object
    *  Generates an empty list.
    */
   public CircleQueueAL()
   {
-    firstObject = null;
-    finalObject = null;
-    currentObject = null;
+    list.clear();
   }
   
   /**
@@ -34,12 +30,9 @@ public class CircleQueueAL<Initial>
    */
   public Object getFirstObject()
   {
-  	currentObject = firstObject;
+  	currentIndex = 0;
 
-    if (firstObject == null)
-    	return null;
-    else
-    	return list.get(0);
+    	return list.get(currentIndex);
   }
 
   /**
@@ -49,11 +42,7 @@ public class CircleQueueAL<Initial>
    */
   public Object getLastObject()
   {
-	currentObject = finalObject;
 
-    if (finalObject == null)
-    	return null;
-    else
     	return list.get(list.size()-1);
   }
   
@@ -64,10 +53,8 @@ public class CircleQueueAL<Initial>
    */
   public Object getObject()
   {
-    if (currentObject == null)
-  	  return null;
-    else
-      return list.indexOf(currentObject);
+
+      return list.indexOf(currentIndex);
   }
   
   /**
@@ -76,12 +63,12 @@ public class CircleQueueAL<Initial>
    */
   public void setNext()
   {
-	int newIndex= list.indexOf(currentObject);
-	  currentObject = list.get(newIndex +1);
-	
+	int newIndex = list.size() - 1;
+	 if (currentIndex != newIndex) {
+	currentIndex++;
+	 }
 	// never let currentNode be null, wrap to head
-	if (currentObject == null)
-		currentObject = firstObject;
+
   }
   
   /**
@@ -90,11 +77,12 @@ public class CircleQueueAL<Initial>
    */
   public void setPrevious()
   {
-	  int newIndex = list.indexOf(currentObject);
-	  currentObject = list.get(newIndex -1);
+	  if (currentIndex != 0)
+	  {
+	  currentIndex--;
+	  }
 	// never let currentNode be null, wrap to head
-	if (currentObject == null)
-		currentObject = finalObject;
+
   }
   
   
@@ -103,27 +91,12 @@ public class CircleQueueAL<Initial>
    *
    * @param  opaqueObject  is the data to be inserted in the Queue object.
    */
-  public void add(Initial o)
+  public void add(Initial object)
   {
 	  // add new object to end of Queue
-	  // set opaqueObject
-	  // build previous link of tail (as current)
-	  list.add(o);
-	  finalObject = list.get(list.size() -1);
-	  
-	  // build next link of current (as tail)
-	  if (currentObject != null)
-	  { int newIndex = list.indexOf(currentObject);
-	  list.set(newIndex +1,  finalObject);
-	  }
-	  
-	  // after links are established current eq tail
-	  currentObject = finalObject;
-
-	  // head eq tail on 1st element only
-	  if (firstObject == null) {
-		  firstObject = finalObject;
-	  }
+	 currentIndex = list.size();
+      list.add(object);
+      
   }
   
   /**
@@ -132,18 +105,15 @@ public class CircleQueueAL<Initial>
    */
   public Object delete()
   {
-	  Initial opaqueObject = null;
+	  Initial deletedObject = null;
 	  	  
-	  if (firstObject != null) {
-		  opaqueObject = list.get(0);
-		  firstObject = list.get(1);
-		  if (firstObject == null)
-			  finalObject = firstObject;
-		  else
-			  list.set(list.indexOf(finalObject),null);
+	  if (list.size() != 0) {
+		  deletedObject = list.get(0);
+		  list.remove(0);
+
 	  }
 	  		
-	  return opaqueObject;
+	  return deletedObject;
   }
   
   
@@ -158,7 +128,8 @@ public class CircleQueueAL<Initial>
   {
     String queueToString = "[";
 
-    Initial object = firstObject;  			// start from the head
+    Initial object = list.get(0);  			// start from the head
+   
     while (object != null)
     {
     	queueToString += "(" + object + ")"; 	// append the data to output string
@@ -172,13 +143,13 @@ public class CircleQueueAL<Initial>
 // loop 'till queue ends
     queueToString += "]";
     return queueToString;
-  }
+  } 
 
   /**
    * Performs insertion sort based off of the contents of object
    */
 
-public void insertionSort() {	
+/*public void insertionSort() {	
 
   public void insertionSort() {	
 
@@ -221,6 +192,6 @@ public void insertionSort() {
     } 
     
   }
-  
+  */
 }
 
