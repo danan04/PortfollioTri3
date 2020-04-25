@@ -70,7 +70,7 @@ public class UI extends JFrame {
 		btnSortByAge.setFont(new Font("Castellar", Font.PLAIN, 14));
 		btnSortByAge.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//sort.setText(CircleQueue.main(null));
+				sort.setText(CircleQueueDriver.main(null));
 			}
 		});
 		btnSortByAge.setBounds(215, 192, 248, 21);

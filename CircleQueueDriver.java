@@ -64,11 +64,24 @@ public class CircleQueueDriver {
 		}
 	}
 	
+	public String saveList()
+	{
+		/*
+		 * String list = "";
+		for(int i = 0; i < this.count; i++)
+		{
+			System.out.println(cqueue);
+			list += cqueue + "\n";
+		}
+		*/
+		String list = cqueue.toString();
+		return list;
+	}
 	
 	/* 
 	* Illustrate different Objects that can be placed on same Queue
 	*/
-	public static void main(String[] args)
+	public static String main(String[] args)
 	{	
 		//queue
 		CircleQueueDriver trial = new CircleQueueDriver();
@@ -101,10 +114,15 @@ public class CircleQueueDriver {
 		/*Vehicle.key = Vehicle.KeyType.combo;*/
 		trial.showCQueue();
 		
+		//tostring
+		String str = trial.saveList();
+		System.out.println();
+		System.out.println("Str \n" + str);
+		
 		//delete queue objects
 		trial.deleteCQueue();
 		
-		
+		return str;
 	
 	}
 
