@@ -148,10 +148,6 @@ public class CircleQueueAL<Initial>
    * Performs insertion sort based off of the contents of object
    */
 
-
-public void insertionSort() {	
-
-
   public void insertionSort() {	
 
 	
