@@ -223,6 +223,10 @@ public class Sorts
     /**
      * Analysis:
      * Bubble sort is the easiest form of sorting  but is also the most inefficient. Bubble sort had both the most compares and the most swaps. 
-     * Although the insertion sort had less compares than selection sort, it had more swaps, which would be less efficient.
+     * Although the selection sort had less swaps than insertion sort, it had more compares, which would be less efficient. 
+     * In a selection sort: 
+     * you have to scan the entire unsorted part of the list to find the minimum remaining element for every element you need to add
+     * In an insertion sort:
+     * you search the sorted section to find out where the next element goes but the search ends once you have found the insertion point
      */
 }
