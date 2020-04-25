@@ -66,14 +66,14 @@ public class UI extends JFrame {
 		sort.setBounds(10, 244, 656, 118);
 		getContentPane().add(sort);
 		
-		JButton btnSortByAge = new JButton("Sort by age");
+		JButton btnSortByAge = new JButton("Alphabetize Names");
 		btnSortByAge.setFont(new Font("Castellar", Font.PLAIN, 14));
 		btnSortByAge.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//sort.setText(data.toString3());
+				//sort.setText(CircleQueue.main(null));
 			}
 		});
-		btnSortByAge.setBounds(268, 192, 144, 21);
+		btnSortByAge.setBounds(215, 192, 248, 21);
 		getContentPane().add(btnSortByAge);
 
 	}

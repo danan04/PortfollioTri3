@@ -77,7 +77,7 @@ public class CircleQueueDriver {
 		trial.addCQueue(Criminal.criminalData());
 		//trial.addCQueue(Cupcakes.cupCakeData());
 		//trial.addCQueue(Alphabet.alphabetData());	
-		trial.addCQueue(Vehicle.vehicleData());
+		/*trial.addCQueue(Vehicle.vehicleData());*/
 		//display queue objects in queue order
 		trial.showCQueue();
 		
@@ -85,8 +85,10 @@ public class CircleQueueDriver {
 		Criminal.key = Criminal.KeyType.name;
 		//Cupcakes.key = Cupcakes.KeyType.flavor;
 		//Alphabet.key = Alphabet.KeyType.letter;
-		Vehicle.key = Vehicle.KeyType.make;
+		/*Vehicle.key = Vehicle.KeyType.make;*/
 		//trial.cqueue.insertionSort();
+		
+		System.out.println("Sorted");
 		
 		// Call the selectionSort
 		trial.cqueue.selectionSort();
@@ -96,7 +98,7 @@ public class CircleQueueDriver {
 		Criminal.key = Criminal.KeyType.combo;
 		//Cupcakes.key = Cupcakes.KeyType.combo;
 		//Alphabet.key = Alphabet.KeyType.combo;
-		Vehicle.key = Vehicle.KeyType.combo;
+		/*Vehicle.key = Vehicle.KeyType.combo;*/
 		trial.showCQueue();
 		
 		//delete queue objects

@@ -227,6 +227,8 @@ public class Sorts
      * In a selection sort: 
      * you have to scan the entire unsorted part of the list to find the minimum remaining element for every element you need to add
      * In an insertion sort:
-     * you search the sorted section to find out where the next element goes but the search ends once you have found the insertion point
+     * you search the sorted section to find out where the next element goes and the search ends once the place to insert has been found
+     * In addition, through previous runs, insertion had the fastest time every time showing its speed. Insertion sort nearly halved the 
+     * selection sort time almost every time.
      */
 }
