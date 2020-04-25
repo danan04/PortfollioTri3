@@ -17,7 +17,7 @@ public class Sorts
     private int[] ilist; int icompares = 0; int iswaps = 0; long itime = 0;
     private int[] slist; int scompares = 0; int sswaps = 0; long stime = 0;
     
-    boolean showList = false;
+    boolean showList = true;
 
     /**
      * Constructor for objects of class isort
@@ -219,4 +219,10 @@ public class Sorts
         is.listType = ListType.Selection;
         System.out.println(is);
     }
+    
+    /**
+     * Analysis:
+     * Bubble sort is the easiest form of sorting  but is also the most inefficient. Bubble sort had both the most compares and the most swaps. 
+     * Although the insertion sort had less compares than selection sort, it had more swaps, which would be less efficient.
+     */
 }
