@@ -17,6 +17,23 @@ import java.awt.Font;
 import javax.swing.JScrollPane;
 
 public class UI extends JFrame {
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					UI frame = new UI();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
 	public UI() {
 		getContentPane().setBackground(new Color(135, 206, 250));
 		getContentPane().setLayout(null);
@@ -34,7 +51,7 @@ public class UI extends JFrame {
 		btnDisplayListOf.setFont(new Font("Castellar", Font.PLAIN, 14));
 		btnDisplayListOf.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//display.setText(Criminal.main(null));
+				display.setText(Criminal.main(null));
 			}
 		});
 		btnDisplayListOf.setBounds(193, 10, 302, 21);
@@ -67,21 +84,6 @@ public class UI extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UI frame = new UI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 
 }

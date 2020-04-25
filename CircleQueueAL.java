@@ -146,51 +146,90 @@ public class CircleQueueAL<Initial>
 
   /**
    * Performs insertion sort based off of the contents of object
+
    */
 
 
-	
-  public void insertionSort() {	
 
-	
-	//two nodes needed for insertion sort indexes
-    LinkedList node1 = headNode;
-    LinkedList node2 = (node1 == null) ? null : node1.getNext();
-    
-    //continue while nodes remain in bounds
-    while (node2 != null) {	
-    	
-    	//inner loop pointers for compares and shifts
-    	LinkedList slot1 = node1;
-    	LinkedList slot2 = node2;
-    		
-		//key to be inserted into sorted slot
-		LinkedList key = new LinkedList(node2);		//note: make key a different object, persistent/static in value (node2 moves)
-		String keyText = node2.getObject().toString();
+  public void insertionSort() {   
 
-		//walks slots backwards until key position in found
-		while ( slot1.getObject().toString().compareTo(keyText) > 0 ) {
-	    	//shifts object greater than key value to the right in list
-    		slot2.setObject(slot1.getObject());
+      // iterate list, one less than length
+      for (int i = 0; i < list.size() - 1; i++) {
 
-			//moves inner loop pointers
-			slot1 = slot1.getPrevious();
-			slot2 = slot2.getPrevious();
-			
-			//stop at the front of list
-			if (slot1 == null)
-				break;
-			
-    	}
-		//place key in insertion position
-    	slot2.setObject(key.getObject());
+          // insertion sort key logic
+          int k = i + 1;
+          Initial swap = list.get(k);            
+          while( k > 0 && swap.toString().compareTo(list.get(k-1).toString()) < 0) {
+              list.set(k, list.get(k-1));
+             
+              k--;
+          }
+          list.set(k, swap);
 
-    	//advance insertion sort indexes
-    	node1 = node1.getNext();
-    	node2 = node2.getNext();
-    } 
-    
+      }
+
   }
- 
-}
 
+  /**
+   * Performs selection sort based off of the contents of object
+   */
+  public void selectionSort() {   
+
+      //two nodes needed for selection sort indexes
+      int node1 = headNode;
+      int node2 = (node1 == -1) ? -1 : (node1+1);
+
+      //continue while nodes remain in bounds
+      while (node2 != -1) { 
+
+          //inner loop pointers for compares and shifts
+          int slot1 = node1;
+          int slot2 = node2;
+
+          //key to be swapped with smallest node in the tail
+          //LinkedList key = new LinkedList(node1);       //note: make key a different object, persistent/static in value (node2 moves)
+          String keyText = list.get(node1).toString();
+          int key = node1;
+
+          //walks slots forward until the  smallest element in the tail end is found
+          while ( slot2 != -1) {
+              // Check to see if key is less than current slot2.  If it is, set key to slot2
+              if (list.get(slot2).toString().compareTo(keyText) < 0)
+              {
+                  //key.setObject(slot2.getObject());
+                  keyText = list.get(slot2).toString();
+                  key = slot2;
+              }
+              //slot2.setObject(slot1.getObject());
+
+              //moves inner loop pointers
+              slot2 = slot2 + 1;
+              
+              if (slot2 >= list.size())
+                  slot2 = -1;
+
+          }
+
+          // Swap key with slot1
+          if (list.get(slot1).toString().compareTo(keyText) != 0)
+          {
+              // swap the key with node1
+              Initial temp = list.get(key);
+              //LinkedList temp = new LinkedList(key);
+              list.set(key, list.get(slot1));
+              list.set(slot1, temp);
+          }
+
+          //advance selection sort indexes
+          node1 = node1 + 1;
+          node2 = node1 + 1;
+          
+          if (node2 == list.size())
+          {
+              node2 = -1;
+              node1 = -1;
+          }
+      } 
+
+  }
+}

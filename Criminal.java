@@ -124,10 +124,19 @@ public class Criminal extends Generics {
 	 * main to test Criminal class
 	 * 
 	 */
-	public static void main(String[] args) {
+	public static String main(String[] args) {
 		Generics[] ad = criminalData();
+
 		for (Generics a : ad)
 			System.out.println(a);
+
+		String list = "";
+		for(int i = 0; i < ad.length; i++)
+		{
+			System.out.println(ad[i]);
+			list += ad[i];
+		}
+		return list;
 	}
 
 }
